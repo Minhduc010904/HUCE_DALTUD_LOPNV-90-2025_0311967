@@ -1,0 +1,142 @@
+﻿<Page x:Class="_67TH1_LTUDTXD_HUCE_NHOM0121.View.Thongsodat"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_67TH1_LTUDTXD_HUCE_NHOM0121.View"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"   
+      Title="Thongsodat" Height="656" Width="1076"  Background="Transparent">
+
+    <Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        <Border Background="#cfd5e5" BorderBrush="#ebedf3" Padding="10" BorderThickness="2" x:Name="ThongsodatPage">
+            <Border>
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#fefefe" Offset="0"/>
+
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid>
+                    <Grid Grid.Column="1" Margin="20,20,10,20">
+
+
+                        <!-- man hinh chinh-->
+                        <StackPanel x:Name="DefaultDataInput" Visibility="Visible">
+
+                            <Border CornerRadius="10" Background="White" Padding="15" Margin="0,-13.5,0,15">
+                                <StackPanel>
+                                    <!-- dat -->
+                                    <TextBlock Text="Thông số đất" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+                                    <Border CornerRadius="5" Background="#f5f6fa" Padding="15" Margin="0,0,0,15">
+                                        <StackPanel>
+                                            <!-- cac thong tin cua dat -->
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+
+                                                <!-- Loại đất -->
+                                                <TextBlock Text="Loại đất:" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="0,0,15,10"/>
+                                                <ComboBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,10"
+                                                         SelectedValue="{Binding LoaiDat, UpdateSourceTrigger=PropertyChanged}"
+                                                        SelectedValuePath="Content">
+                                                    <ComboBoxItem Content="Đất cát"/>
+                                                    <ComboBoxItem Content="Đất sét"/>
+
+                                                </ComboBox>
+
+                                                <!-- Trạng thái -->
+                                                <TextBlock Text="Trạng thái:" VerticalAlignment="Center" Grid.Row="0" Grid.Column="2" Margin="0,0,15,10"/>
+                                                <ComboBox Grid.Row="0" Grid.Column="3" Margin="0,0,0,10"
+                                                         SelectedValue="{Binding TrangThai, UpdateSourceTrigger=PropertyChanged}"
+                                                       SelectedValuePath="Content">
+                                                    <ComboBoxItem Content="Cứng"/>
+                                                    <ComboBoxItem Content="Dẻo"/>
+                                                    <ComboBoxItem Content="Mềm"/>
+                                                </ComboBox>
+
+                                                <!-- Góc ma sát -->
+                                                <TextBlock Text="Góc ma sát (°):" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="0,0,15,10"/>
+                                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,20,10"
+                                                         Text="{Binding GocMaSat, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                                <!-- Mô-đun nén ép -->
+                                                <TextBlock Text="Mô-đun nén ép (MPa):" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" Margin="0,0,15,10"/>
+                                                <TextBox Grid.Row="1" Grid.Column="3" Margin="0,0,0,10"
+                                                         Text="{Binding ModunNenEp, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                                <!-- Lực dính -->
+                                                <TextBlock Text="Lực dính (kPa):" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Margin="0,0,15,10"/>
+                                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,20,10"
+                                                         Text="{Binding LucDinh, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                                <!-- Chiều dày lớp đất -->
+                                                <TextBlock Text="Chiều dày lớp đất (mm):" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" Margin="0,0,15,10"/>
+                                                <TextBox Grid.Row="2" Grid.Column="3" Margin="0,0,0,10"
+                                                         Text="{Binding ChieuDay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                                <!-- Dung trọng riêng -->
+                                                <TextBlock Text="Dung trọng riêng (kN/m³):" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Margin="0,0,15,10"/>
+                                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,0,20,10"
+                                                         Text="{Binding DungTrong, UpdateSourceTrigger=PropertyChanged}"/>
+                                            </Grid>
+
+                                            <!-- Add and Remove Buttons -->
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,10">
+                                                <Button Content="Thêm" Background="#FF87BA63" Width="80" Margin="0,0,10,0"
+                                                        Command="{Binding ThemDatCommand}" Style="{StaticResource MaterialDesignRaisedButton}"/>
+                                                <Button Content="Xóa" Background="#FFE97555" Width="80"
+                                                        Command="{Binding XoaDatCommand}" Style="{StaticResource MaterialDesignRaisedButton}"/>
+                                            </StackPanel>
+
+                                            <!-- DataGrid lop dat -->
+                                            <GroupBox Header="CHI TIẾT CÁC LỚP ĐẤT" Margin="0,0,0,0" Background="#00000000">
+                                                <DataGrid x:Name="SoilDataGrid" AutoGenerateColumns="False" Margin="0,0,0,0" Height="220"
+                                                          ItemsSource="{Binding DanhSachDat}" SelectedItem="{Binding DuLieuDuocChon}">
+                                                    <DataGrid.Columns>
+                                                        <DataGridTextColumn Header="STT" Binding="{Binding IdDat}" Width="70"/>
+                                                        <DataGridTextColumn Header="Loại đất" Binding="{Binding LoaiDat}" Width="90"/>
+                                                        <DataGridTextColumn Header="Trạng thái" Binding="{Binding TrangThai}" Width="95"/>
+                                                        <DataGridTextColumn Header="Góc ma sát(°)" Binding="{Binding GocMaSat}" Width="120"/>
+                                                        <DataGridTextColumn Header="Mô-đun nén ép(MPa)" Binding="{Binding ModunNenEp}" Width="140"/>
+                                                        <DataGridTextColumn Header="Lực dính(kPa)" Binding="{Binding LucDinh}" Width="120"/>
+                                                        <DataGridTextColumn Header="Dung trọng(kN/m³)" Binding="{Binding DungTrong}" Width="120"/>
+                                                        <DataGridTextColumn Header="Chiều dày (m)" Binding="{Binding ChieuDay}" Width="120"/>
+                                                    </DataGrid.Columns>
+                                                </DataGrid>
+                                            </GroupBox>
+                                        </StackPanel>
+                                    </Border>
+
+                                    <!-- nut chuyen page -->
+                                    <Button Content="Thông số đất" Background="#FF87BA63" BorderBrush="#7163ba" 
+                                            Width="200" Height="40" HorizontalAlignment="Center" Margin="0,0,120,0"
+                                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                                    <Button Content="Thông số móng " Background="#FFE97555" BorderBrush="#FF7163BA" 
+                                            Width="200" Height="40" HorizontalAlignment="Left"
+                                            Style="{StaticResource MaterialDesignRaisedButton}" VerticalAlignment="Center" Margin="0,-39,0,0" x:Name="Thongsomong" Click="Thongsomong_Click"/>
+                                    <Button Content="Lưu số liệu" Background="#FF2E3F99" BorderBrush="#7163ba" x:Name="Luusolieu2"
+                                            Width="200" Height="40" HorizontalAlignment="Right"
+                                            Style="{StaticResource MaterialDesignRaisedButton}" VerticalAlignment="Center" Margin="0,-39,0,0" Click="Luusolieu2_Click"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Border>
+    </Grid>
+</Page>

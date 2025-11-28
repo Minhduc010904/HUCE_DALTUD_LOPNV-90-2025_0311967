@@ -1,0 +1,128 @@
+﻿<Page x:Class="_67TH1_LTUDTXD_HUCE_NHOM0121.View.Chongdamthung"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_67TH1_LTUDTXD_HUCE_NHOM0121.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    mc:Ignorable="d"
+    Title="Chongdamthung" Height="1128" Width="1076" Background="Transparent">
+    <Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        <Border Background="#cfd5e5" BorderBrush="#ebedf3" Padding="10" BorderThickness="2" x:Name="ThongsomongPage" Margin="0,0,0,61">
+            <Border Height="1055" VerticalAlignment="Top" >
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#fefefe" Offset="0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid Margin="0,0,0,133">
+                    <Grid Grid.Column="1" Margin="20,20,10,20">
+                        <Frame x:Name="MainContentFrame" NavigationUIVisibility="Hidden" Background="Transparent" Margin="0,0,0,238"/>
+
+                        <!-- man hinh chinh-->
+                        <Grid Background="AliceBlue" Margin="20,20,20,238">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Text="TÍNH TOÁN KIỂM TRA CHỐNG DÂM THỦNG" Style="{StaticResource MaterialDesignTitleLargeTextBlock}" HorizontalAlignment="Center"
+                   Margin="0,10,0,20" FontWeight="Bold"/>
+
+                            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                                <StackPanel>
+                                    <!--Thông số tính toán-->
+                                    <GroupBox Header="Thông số tính toán" Margin="0,15,0,20" Style="{StaticResource MaterialDesignCardGroupBox}">
+                                        <StackPanel Margin="10">
+                                            <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                                                <TextBlock Text="Lớp bảo vệ (m)" VerticalAlignment="Center" Width="200"/>
+                                                <TextBox x:Name="txtChieuDayLopBaoVe" Text="{Binding ChieuDayLopBaoVe, StringFormat={}{0:F2}, UpdateSourceTrigger=PropertyChanged}" Width="150" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                                            </StackPanel>
+
+                                            <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                                                <TextBlock Text="bc - Chiều rộng cột (m)" VerticalAlignment="Center" Width="200"/>
+                                                <TextBox x:Name="txtChieuRongCot" Text="{Binding ChieuRongCot, StringFormat={}{0:F2}, UpdateSourceTrigger=PropertyChanged}" Width="150" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                                            </StackPanel>
+
+                                            <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                                                <TextBlock Text="lc - Chiều dài cột (m)" VerticalAlignment="Center" Width="200"/>
+                                                <TextBox x:Name="txtChieuDaiCot" Text="{Binding ChieuDaiCot, StringFormat={}{0:F2}, UpdateSourceTrigger=PropertyChanged}" Width="150" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                                            </StackPanel>
+
+                                            <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                                                <TextBlock Text="h0 - Chiều cao làm việc (cm)" VerticalAlignment="Center" Width="200"/>
+                                                <TextBox x:Name="txth0" Text="{Binding h0, StringFormat={}{0:F2}, UpdateSourceTrigger=PropertyChanged}" Width="150" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                                            </StackPanel>
+
+                                            <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                                                <TextBlock Text="Rbt - Cường độ kéo BT (MPa)" VerticalAlignment="Center" Width="200"/>
+                                                <TextBox x:Name="txtCuongDoBeTong" Text="{Binding CuongDoBeTong, StringFormat={}{0:F2}, UpdateSourceTrigger=PropertyChanged}" Width="150" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </GroupBox>
+
+                                    <!--Kết quả-->
+                                    <GroupBox Header="Kết Quả Tính Toán" Margin="0,10,0,10" Style="{StaticResource MaterialDesignCardGroupBox}" Height="529">
+                                        <Grid Margin="10">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+
+                                            <StackPanel Grid.Row="0">
+                                                <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                                                    <TextBlock Text="Phản lực đất đáy móng max (Pomax):" VerticalAlignment="Center" Width="250" />
+                                                    <TextBox x:Name="txtPomax" Text="{Binding Pomax, StringFormat={}{0:F2}, Mode=OneWay}" Width="150" Style="{StaticResource MaterialDesignOutlinedTextBox}" IsReadOnly="True"/>
+                                                    <TextBlock Text="T/m²" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                                                    <TextBlock Text="Phản lực đất đáy móng min (Pomin):" VerticalAlignment="Center" Width="250" />
+                                                    <TextBox x:Name="txtPomin" Text="{Binding Pomin, StringFormat={}{0:F2}, Mode=OneWay}" Width="150" Style="{StaticResource MaterialDesignOutlinedTextBox}" IsReadOnly="True"/>
+                                                    <TextBlock Text="T/m²" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                                                    <TextBlock Text="Phản lực tại mép nguy hiểm (Pot):" VerticalAlignment="Center" Width="250" />
+                                                    <TextBox x:Name="txtPot" Text="{Binding Pot, StringFormat={}{0:F2}, Mode=OneWay}" Width="150" Style="{StaticResource MaterialDesignOutlinedTextBox}" IsReadOnly="True"/>
+                                                    <TextBlock Text="T/m²" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                                                    <TextBlock Text="Áp lực đâm thủng (Pđt):" VerticalAlignment="Center" Width="250" />
+                                                    <TextBox x:Name="txtPdt" Text="{Binding Pdt, StringFormat={}{0:F2}, Mode=OneWay}" Width="150" Style="{StaticResource MaterialDesignOutlinedTextBox}" IsReadOnly="True"/>
+                                                    <TextBlock Text="T" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                                    <TextBlock Text="Lực chống đâm thủng (Pcđt):" VerticalAlignment="Center" Width="250" />
+                                                    <TextBox x:Name="txtPcdt" Text="{Binding Pcdt, StringFormat={}{0:F2}, Mode=OneWay}" Width="150" Style="{StaticResource MaterialDesignOutlinedTextBox}" IsReadOnly="True"/>
+                                                    <TextBlock Text="T" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                                                </StackPanel>
+                                            </StackPanel>
+
+                                            <Separator Grid.Row="1" Style="{StaticResource MaterialDesignDarkSeparator}" Margin="0,10"/>
+                                            <StackPanel Grid.Row="2">
+                                                <TextBlock Text="Kết Luận" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Margin="0,-20,0,10"/>
+                                                <TextBox Text="{Binding CheckResult, Mode=OneWay}" BorderThickness="1" Padding="10" BorderBrush="{DynamicResource MaterialDesignShadowBrush}" IsReadOnly="True" TextWrapping="Wrap" MinHeight="60"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </GroupBox>
+                                </StackPanel>
+                            </ScrollViewer>
+
+                            <!--Nút-->
+                            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                                <Button Command="{Binding CalculateCommand}" Content="TÍNH TOÁN" Style="{StaticResource MaterialDesignRaisedLightButton}" Width="120" Margin="0,0,20,0"/>
+                                <Button x:Name="Luusolieucdt" Command="{Binding SaveResultCommand}" Content="LƯU KẾT QUẢ" Style="{StaticResource MaterialDesignRaisedLightButton}" Width="120" Margin="0,0,20,0" Click="Luusolieucdt_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Border>
+    </Grid>
+</Page>

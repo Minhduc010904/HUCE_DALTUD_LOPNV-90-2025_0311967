@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "CmotKUHwu1w=",
+  "success": true,
+  "projectFilePath": "C:\\67TH1_LTUDTXD_HUCE_NHOM012\\HUCE_DALTUD_LOPNV-90-2025_0311967\\67TH1_LTUDTXD_HUCE_NHOM0121\\67TH1_LTUDTXD_HUCE_NHOM0121.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\materialdesigncolors\\5.2.1\\materialdesigncolors.5.2.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\materialdesignthemes\\5.2.1\\materialdesignthemes.5.2.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+  ],
+  "logs": []
+}

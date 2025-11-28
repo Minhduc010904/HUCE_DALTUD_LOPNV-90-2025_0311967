@@ -1,0 +1,241 @@
+<Window x:Class="_67TH1_LTUDTXD_HUCE_NHOM0121.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_67TH1_LTUDTXD_HUCE_NHOM0121"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Phần mềm tính toán và thiết kế Móng Đơn" Height="900" Width="1300" Background="Transparent" ResizeMode="NoResize" 
+        AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" >
+    <Border Background="#cfd5e5" CornerRadius="40" BorderThickness="2" BorderBrush="#ebedf3"
+       Padding="20">
+        <Border CornerRadius="60">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#fefefe" Offset="0"/>
+                    <GradientStop Color="#ededef" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--  Menu  -->
+                <Border x:Name="MenuPanel" CornerRadius="20" Background="#FF2E3F99" Margin="20" Width="90">
+                    <Grid>
+                        <Image Source="\Resources\Images\logo.jpg" Width="60" Margin="0,600,0,0"/>
+                        <StackPanel VerticalAlignment="Top">
+                            <ToggleButton x:Name="MenuToggleButton"
+                      Style="{StaticResource MaterialDesignIconForegroundButton}"
+                      ToolTip="Mở rộng menu"
+                      HorizontalAlignment="Left"
+                      Margin="20,10,0,0">
+                                <materialDesign:PackIcon Kind="Menu" Foreground="White" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <ToggleButton.Triggers>
+                                    <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                        <BeginStoryboard>
+                                            <Storyboard x:Name="HideStackPanel">
+                                                <DoubleAnimation Storyboard.TargetName="MenuPanel" Storyboard.TargetProperty="Width" From="200" To="90" Duration="0:0:0.2"/>
+                                                <!--  Keo dai menu/An chu -->
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HomeText" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Collapsed}"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DataInputText" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Collapsed}"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckText" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Collapsed}"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ResultsText" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Collapsed}"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RebarLayoutText" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Collapsed}"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ExportText" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Collapsed}"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ExitText" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Collapsed}"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                        <BeginStoryboard>
+                                            <Storyboard x:Name="ShowStackPanel">
+                                                <DoubleAnimation Storyboard.TargetName="MenuPanel" Storyboard.TargetProperty="Width" From="90" To="200" Duration="0:0:0.2"/>
+                                                <!-- Hien chu -->
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HomeText" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DataInputText" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckText" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ResultsText" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RebarLayoutText" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ExportText" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ExitText" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </ToggleButton.Triggers>
+                            </ToggleButton>
+
+                            <!-- Menu Items -->
+                            <Separator Height="30" Background="Transparent"/>
+
+                            <!--  Menu Item -->
+                            <Button x:Name="HomeButton" Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Left"  Margin="13,0,0,0" Click="HomeButton_Click">
+                                <StackPanel Orientation="Horizontal" >
+                                    <materialDesign:PackIcon Kind="Home" Width="30" Height="30" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White" />
+                                    <TextBlock x:Name="HomeText" Text="Trang chủ" Foreground="White" FontSize="14" VerticalAlignment="Center" Visibility="Collapsed" />
+                                </StackPanel>
+                            </Button>
+
+                            <!-- Nhap du lieu -->
+                            <Button x:Name="Nhapsolieu" Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Left" Margin="13,0,0,0" Click="Nhapsolieu_Click" >
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="DatabaseEdit" Width="30" Height="30" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White"/>
+                                    <TextBlock x:Name="DataInputText" Text="Nhập dữ liệu" Foreground="White" FontSize="14" VerticalAlignment="Center" Visibility="Collapsed"/>
+                                </StackPanel>
+                            </Button>
+
+                            <!-- Kiem tra -->
+                            <Button x:Name="CheckButton" Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Left" Margin="13,0,0,0" Click="CheckButton_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="TextBoxCheckOutline" Width="30" Height="30" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White"/>
+                                    <TextBlock x:Name="CheckText" Text="Kiểm tra" Foreground="White" FontSize="14" VerticalAlignment="Center" Visibility="Collapsed"/>
+                                </StackPanel>
+                            </Button>
+
+                            <!--Menu Kiem tra -->
+                            <StackPanel x:Name="CheckMenu" Visibility="Collapsed" Margin="25,0,0,0">
+                                <Button x:Name="SucchiutaiButton" Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Left" Margin="13,0,0,0"  Click="SucchiutaiButton_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="WeightKilogram" Width="20" Height="20" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White"/>
+                                        <TextBlock Text="Sức chịu tải" Foreground="White" FontSize="12" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button x:Name="DolunButton" Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Left" Margin="13,0,0,0" Click="DolunButton_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="ArrowDownBold" Width="20" Height="20" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White"/>
+                                        <TextBlock Text="Độ lún" Foreground="White" FontSize="12" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button x:Name="ChongdamthungButton" Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Left" Margin="13,0,0,0" Click="ChongdamthungButton_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="ArrowSplitVertical" Width="20" Height="20" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White"/>
+                                        <TextBlock Text="Chống đâm thủng" Foreground="White" FontSize="12" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+
+                            <!-- Tinh toan -->
+                            <Button x:Name="TinhtoanButton" Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Left" Margin="13,0,0,0" Click="TinhtoanButton_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="CalculatorVariant" Width="30" Height="30" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White"/>
+                                    <TextBlock x:Name="ResultsText" Text="Tính cốt thép" Foreground="White" FontSize="14" VerticalAlignment="Center" Visibility="Collapsed"/>
+                                </StackPanel>
+                            </Button>
+
+                            <!-- Bố trí cốt thép -->
+                            <Button x:Name="BotriButton" Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Left" Margin="13,0,0,0" Click="BotriButton_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="ViewComfy" Width="30" Height="30" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White"/>
+                                    <TextBlock x:Name="RebarLayoutText" Text="Bố trí cốt thép" Foreground="White" FontSize="14" VerticalAlignment="Center" Visibility="Collapsed"/>
+                                </StackPanel>
+                            </Button>
+
+                            <!-- Xuat ket qua -->
+                            <Button x:Name="ExportButton" Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Left" Margin="13,0,0,0" Click="ExportButton_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Export" Width="30" Height="30" VerticalAlignment="Center" Margin="3,0,10,0" Foreground="White"/>
+                                    <TextBlock x:Name="ExportText" Text="Xuất báo cáo" Foreground="White" FontSize="14" VerticalAlignment="Center" Visibility="Collapsed"/>
+                                </StackPanel>
+                            </Button>
+                            <Separator Height="30" Background="Transparent"/>
+                            <!-- Thoat -->
+                            <Button x:Name="ExitButton" Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Left" Margin="13,0,0,0" Click="ExitButton_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="ExitToApp" Width="30" Height="30" VerticalAlignment="Center" Margin="2,0,10,0" Foreground="White"/>
+                                    <TextBlock x:Name="ExitText" Text="Thoát" Foreground="White" FontSize="14" VerticalAlignment="Center" Visibility="Collapsed"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- Man hinh chinh -->
+                <Grid Grid.Column="1" Margin="20,20,20,20">
+                    <!-- Menu ngang phía trên -->
+                    <Border x:Name="TopMenuPanel" CornerRadius="20"  Height="50" 
+                            VerticalAlignment="Top" Margin="10,0,340,0">
+                        <Grid>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,-114,0">
+                                <Button x:Name="RunCalculationButton" Style="{StaticResource MaterialDesignRaisedButton}" Background="#4caf50" Height="38"
+                                    Margin="10,0,10,0" Click="RunCalculationButton_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="FileFind" Width="30" Height="30" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                                        <TextBlock Text="Xem số liệu" Margin="0,2,0,0" FontSize="20" />
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <!-- Nội dung chính -->
+                    <Grid Margin="0,60,0,0">
+                        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+                        <Border  BorderBrush="#FF2E3F99" BorderThickness="5">
+                            <Image Source="\Resources\Images\huce.jpg" Stretch="Fill" x:Name="anhnen">
+                                <Image.Effect>
+                                    <BlurEffect Radius="10"/>
+                                </Image.Effect>
+                            </Image>
+                        </Border>
+                        <TextBlock Text="Phần mềm tính toán và thiết kế móng đơn"
+                         FontSize="50" x:Name="tieude"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Top"
+                         Margin="0,50,0,0"
+                         FontFamily="Impact"
+                         TextWrapping="Wrap"
+                         TextAlignment="Center" Foreground="#FF2E3F99" FontWeight="Bold"/>
+
+                        <!-- Giao diện đăng nhập -->
+                        <Border Background="White" CornerRadius="10" Padding="20" Width="400" Height="342" x:Name="login"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="#FF2E3F99" BorderThickness="5">
+                            <!-- Viền màu tím nhạt -->
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Image Source="/Resources/Images/Mong.jpg" />
+
+
+
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Border>
+</Window>
+    

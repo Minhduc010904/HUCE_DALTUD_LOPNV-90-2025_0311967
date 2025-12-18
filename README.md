@@ -1,10 +1,8 @@
-# HUCE_DALTUD_LOPNV-90-2025_0311967
-1. Tên đề tài :
-Lớp môn học: LopNV90
-2.Tên đề tài : Addin tính toán cốt thép móng đơn đúng tâm 
-.Nhóm trưởng :Nguyễn Minh Đức-0311967-67th1- 0372650377 - minhduc010904@gmail.com
-. Thành viên : Đào Xuân Phong-0248167-67th1- 0325673883 - xuanfonggg99@gmail.com
-. Thành viên : Đỗ Đức Hữu-0096166-66th1- 0362936288 - dohuu187@gmail.com
+1. Tên đề tài : Lớp môn học: LopNV90
+2. Thành Viên:
+-Nhóm trưởng: Nguyễn Văn Đức - 67TH1 - 0311967 - 0372650377 - minhduc010904@gmail.com
+- Thành viên 1: Đào Xuân Phong - 67TH1 - 0248167 - 0325673883 - xuanfonggg99@gmail.com
+- Thành viên 2: Đỗ Đức Hữu - 66TH1 - 0096166 - 0362936288 - dohuu187@gmail.com
 3. Tính năng phần mềm
 a, Quản lí dữ liệu đầu vào(Nhập)
 - Thông số địa chất
@@ -25,3 +23,5 @@ d, Quản lí hồ sơ thiết kế
 - Tạo mới hồ sơ thiết kế
 - Lưu trữ hồ sơ thiết kế
 - Mở hồ sơ đã lưu
+4. Hướng dẫn cài đặt chạy chương trình
+....
